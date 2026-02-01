@@ -28,9 +28,9 @@ output  empty,full;
 input [3:0]data_in;
 input reset,wr_en,rd_en,clk;
 
-reg wr_ptr,rd_ptr;
+reg [2:0]wr_ptr,rd_ptr;
 //Memory 
-reg [3:0]mem[7:0];
+reg [3:0]mem[7:0]; 
 
 //write block
 always @(posedge clk ,negedge reset)
@@ -56,7 +56,8 @@ else if(!empty && rd_en)
     end
 end
 //Full and Empty Conditions
-assign full=wr_ptr>7?1:0;
+//assign full=wr_ptr>7?1:0;
+assign full=(wr_ptr==3'd7)?1:0;
 assign empty=(rd_ptr ==wr_ptr)?1:0;
 
 endmodule
