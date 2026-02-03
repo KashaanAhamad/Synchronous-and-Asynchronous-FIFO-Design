@@ -34,7 +34,7 @@ Linear_Synchronous_FIFO LSF(.data_out(data_out),.empty(empty),.full(full),.data_
 initial forever #5 clk =~clk;	
 
 initial begin
-	$monitor("wr_en=%b,rd_en=%b,data_in=%d",wr_en,rd_en,data_in);
+	$monitor("wr_en=%b, rd_en=%b, Data_in=%d, Data_out=%d, Empty=%b, Full=%b",wr_en,rd_en,data_in,data_out,empty,full);
 rst=1;
 #3 rst=0;
 #1 rst=1;
